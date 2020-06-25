@@ -1,10 +1,11 @@
-function formatPercent(grossSalary, discountSalary) {
-  let result = ((discountSalary - grossSalary) / grossSalary) * -100;
-  return `${result.toFixed(2)}%`;
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'percent',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+function percentFormat(numberToFormat) {
+  return formatter.format(numberToFormat);
 }
 
-function formatPercentLiquid(grossSalary, discountSalary) {
-  let result = 100 - ((discountSalary - grossSalary) / grossSalary) * -100;
-  return `${result.toFixed(2)}%`;
-}
-export { formatPercent, formatPercentLiquid };
+export { percentFormat };
